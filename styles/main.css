@@ -3,7 +3,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-template-rows: auto ;
     grid-template-areas: 
     "area-1 area-1"
     "area-2 area-2"
@@ -13,6 +13,10 @@
     "area-6 area-6"
     "area-7 area-7";
   }
+
+a:hover {
+    cursor: pointer;
+}
 
 .header {
     display: flex;
@@ -33,6 +37,14 @@
 .header a {
     color: #a09d9d;
     text-decoration: none;
+}
+
+.header a:hover {
+    color: black;
+}
+
+.header a:not(:hover) {
+    transition: all 1s;
 }
 
 .header_content {
@@ -62,7 +74,6 @@
 .header_content button {
     padding: 10px 20px;
     border: 1px solid #ccc;
-    /* border-radius: 5px; */
     font-size: 16px;
     background-color: #f07171;
     color: #fff;
@@ -80,28 +91,57 @@ button:hover {
     text-decoration: none;
 }
 
-.menu {
-    display: flex;
-    padding-top: 15px;
-    grid-area: area-3;
-   /*  width: 100%; */
+.header_content a:hover {
+    color: rgb(255, 0, 0);
 }
 
-.menu h2 {
+.menu {
+    grid-area: area-3;
+}
+
+.menu ul {
+    padding: 0;
+    padding-top: 15px;
+}
+
+.menu li {
+    display: inline-block;
+    list-style: none;
     font-size: 15px;
     font-weight: 500;
     text-transform: uppercase;
     padding-right: 30px;
-    cursor: pointer;
+}
+
+.menu a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding-bottom: 10px;
+    border-bottom: 1px solid transparent;
+}
+
+.menu a:hover {
+    color: red;
+    border-bottom: 1px solid red;
+}
+
+.menu a:not(:hover) {
+    transition: all 0.4s;
 }
 
 .discont {
     text-align: center;
     grid-area: area-4;
-    padding-top: 15px;
+    padding-top: 5px;
     font-weight: 700;
     font-size: 20px;
     color: #c5222a;
+}
+
+.discont:hover {
+    color: rgb(255, 6, 6);
+    cursor: pointer;
 }
 
 .chain {
@@ -129,41 +169,78 @@ button:hover {
     overflow: hidden;
     text-align: center;
 }
+
+.main {
+    grid-area: area-6;
+}
+
+.main_menu {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    column-gap: 10px;
+}
  
 .grid-container {
-    width: 1100px;
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: repeat(auto, minmax(auto, 1fr));
+    /* width: 1100px; */
+   /*  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr)); */
+    /* grid-template-rows: repeat(auto, minmax(auto, 1fr)); */
+    
+    
     padding: 10px;
     grid-gap: 10px;
     margin: 0;
 }
 
 .grid-container .sort {
-    grid-column: 1 / span 4;
-    grid-row: 1;
     display: flex;
     justify-content: space-between;
-    align-items:center
+    align-items:center;
+    margin-left: 10px;
+}
+
+.grid_items {
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
 }
 
 .grid-item {
-    grid-row: 2;
-    grid-area: auto;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background-color: #ffffff;
+    padding: 20px;
+    width: 220px;
+    height: 380px;
+    background-color: #fff;
+    align-items: center;
 }
 
 .grid-item img {
-    width: 100%;
-    object-fit: contain;
-    
+    max-width: 100%;
+}
+
+.grid-item a {
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.grid-item a:hover {
+    color: red;
+}
+
+.grid-item h3:hover {
+    color: red;
+    cursor: pointer;
 }
 
 .grid-item h3 {
-    /* flex: 1 1 auto; */
     padding: 2px;
     text-align: center;
 }
@@ -179,7 +256,12 @@ button:hover {
 
 .footer h3 {
     font-weight: 600;
-    font-size: 15px;
+    font-size: 20px;
+}
+
+.footer h3:hover {
+    color:#c5222a;
+    cursor: pointer;
 }
 
 
